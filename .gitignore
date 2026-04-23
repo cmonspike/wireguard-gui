@@ -4,3 +4,4 @@
 .flatpak-builder/
 scripts/.flatpak-builder/
 dist/
+build-flatpak/
