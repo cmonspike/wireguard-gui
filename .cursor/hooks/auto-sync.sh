@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Ignore hook payload for now; this hook only needs repo state.
-if [ -t 0 ]; then
-  :
-else
-  cat >/dev/null || true
-fi
-
 if ! command -v git >/dev/null 2>&1; then
   exit 0
 fi
@@ -34,6 +27,7 @@ if [ -z "$(git status --porcelain)" ]; then
 fi
 
 timestamp="$(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+export GIT_TERMINAL_PROMPT=0
 git commit -m "Auto-sync: ${timestamp}" >/dev/null 2>&1 || exit 0
 git push >/dev/null 2>&1 || exit 0
 
