@@ -1,3 +1,6 @@
 /target/
 **/*.rs.bk
 *.swp
+.flatpak-builder/
+scripts/.flatpak-builder/
+dist/
