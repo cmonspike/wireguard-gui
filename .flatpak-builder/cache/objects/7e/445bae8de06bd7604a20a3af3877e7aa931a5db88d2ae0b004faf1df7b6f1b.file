@@ -1,0 +1,48 @@
+{
+  "id" : "io.github.wireguard_gui",
+  "runtime" : "org.gnome.Platform",
+  "runtime-version" : "47",
+  "runtime-commit" : "7d00756d7d5f6397c54f09ac69521991cff9e40a31e6eca6bf61ae9864149380",
+  "sdk" : "org.gnome.Sdk",
+  "sdk-commit" : "fb298c9ea35750b1037f755885076d16ffeed5462b4cee83705b6007474b0307",
+  "build-options" : {
+    "env" : {
+      "CARGO_HOME" : "/run/build/wireguard-gui/cargo"
+    },
+    "build-args" : [
+      "--share=network"
+    ],
+    "append-path" : "/usr/lib/sdk/rust-stable/bin"
+  },
+  "command" : "wireguard-gui",
+  "modules" : [
+    {
+      "name" : "wireguard-gui",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "path" : ".",
+          "type" : "dir"
+        }
+      ],
+      "build-commands" : [
+        "cargo build --release --manifest-path Cargo.toml",
+        "install -Dm755 target/release/wireguard-gui -t /app/bin/",
+        "install -Dm755 target/release/wireguard-gui-helper -t /app/bin/",
+        "install -Dm644 data/io.github.wireguard_gui.desktop -t /app/share/applications/",
+        "install -Dm644 data/io.github.wireguard_gui.metainfo.xml -t /app/share/metainfo/",
+        "install -Dm644 data/icons/hicolor/scalable/apps/io.github.wireguard_gui.svg -t /app/share/icons/hicolor/scalable/apps/"
+      ]
+    }
+  ],
+  "sdk-extensions" : [
+    "org.freedesktop.Sdk.Extension.rust-stable"
+  ],
+  "finish-args" : [
+    "--share=ipc",
+    "--socket=fallback-x11",
+    "--socket=wayland",
+    "--device=dri"
+  ],
+  "source-date-epoch" : 1776944589
+}

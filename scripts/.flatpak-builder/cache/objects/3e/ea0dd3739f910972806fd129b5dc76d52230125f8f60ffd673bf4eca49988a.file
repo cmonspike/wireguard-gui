@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=WireGuard
+Comment=Manage WireGuard tunnels (wg-quick)
+Exec=wireguard-gui
+Icon=network-vpn-symbolic
+Categories=Network;GTK;
+Keywords=wireguard;vpn;network;
+StartupNotify=true
+DBusActivatable=false

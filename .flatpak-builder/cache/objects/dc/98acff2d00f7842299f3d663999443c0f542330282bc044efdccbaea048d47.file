@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.wireguard_gui</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>WireGuard-GUI</name>
+  <summary>Manage WireGuard tunnels with wg-quick</summary>
+  <description>
+    <p>
+      WireGuard GUI lists tunnels from /etc/wireguard, shows peer status when interfaces are up,
+      and lets you connect, disconnect, create, import, or delete configurations using a Polkit-gated helper.
+    </p>
+  </description>
+  <launchable type="desktop-id">io.github.wireguard_gui.desktop</launchable>
+  <url type="homepage">https://github.com/example/wireguard-gui</url>
+  <content_rating type="oars-1.1"/>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <recommends>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </recommends>
+  <categories>
+    <category>Network</category>
+  </categories>
+</component>

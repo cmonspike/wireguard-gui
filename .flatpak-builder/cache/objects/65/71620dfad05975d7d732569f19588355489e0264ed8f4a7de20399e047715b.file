@@ -1,0 +1,5 @@
+[Runtime]
+name=io.github.wireguard_gui.Debug
+
+[ExtensionOf]
+ref=app/io.github.wireguard_gui/x86_64/master

@@ -1,0 +1,18 @@
+[package]
+name = "wireguard-gui"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "wireguard-gui"
+path = "src/main.rs"
+
+[dependencies]
+wireguard-gui-common = { path = "../wireguard-gui-common" }
+gtk = { package = "gtk4", version = "0.9", features = ["v4_14"] }
+adw = { package = "libadwaita", version = "0.7", features = ["v1_5"] }
+glib = "0.20"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+ksni = "0.2"

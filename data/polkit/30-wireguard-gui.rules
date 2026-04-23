@@ -1,0 +1,22 @@
+// Reduce repeated auth prompts for the WireGuard GUI helper while keeping scope narrow.
+//
+// Install to:
+//   /etc/polkit-1/rules.d/30-wireguard-gui.rules
+//
+// This allows active local users to authenticate once (admin password) and reuse
+// authorization for subsequent helper calls for a period defined by Polkit.
+polkit.addRule(function (action, subject) {
+  if (action.id != "org.freedesktop.policykit.exec") {
+    return polkit.Result.NOT_HANDLED;
+  }
+
+  if (action.lookup("program") != "/usr/libexec/wireguard-gui-helper") {
+    return polkit.Result.NOT_HANDLED;
+  }
+
+  if (!subject.local || !subject.active) {
+    return polkit.Result.NOT_HANDLED;
+  }
+
+  return polkit.Result.AUTH_ADMIN_KEEP;
+});
