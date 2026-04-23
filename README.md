@@ -73,6 +73,8 @@ Optional:
 ./scripts/release.sh --flatpak-only
 ```
 
+Generated build output is intentionally ignored by git (`dist/`, `.flatpak-builder/`, `scripts/.flatpak-builder/`, and `build-flatpak/`) and should not be committed.
+
 The GUI looks for the helper in this order:
 
 1. Environment variable `WIREGUARD_GUI_HELPER` (full path)  
