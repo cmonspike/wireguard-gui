@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "stop": [
+      {
+        "command": ".cursor/hooks/auto-sync.sh",
+        "timeout": 60,
+        "failClosed": false
+      }
+    ]
+  }
+}
